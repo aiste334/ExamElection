@@ -43,6 +43,7 @@ public class CandidateController {
     void removeCandidate(@PathVariable int id){
         candidateService.deleteCandidate(id);
     }
+
     @PatchMapping("/candidate/{id}")
     CandidateDTO updateParty(@RequestBody ObjectNode body, @PathVariable int id){
         return candidateService.updateCandidateParty(id, body.get("partyId").asInt());
