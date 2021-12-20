@@ -21,12 +21,12 @@ import javax.persistence.*;
         private String partyName;
         @Basic
         @Column(name = "party_votes", nullable = false, length = 10)
-        private String email;
+        private int partyVotes;
 
 
-        public Party(String partyName, String email) {
+        public Party(String partyName, int partyVotes) {
             this.partyName = partyName;
-            this.email = email;
+            this.partyVotes = partyVotes;
         }
     }
 

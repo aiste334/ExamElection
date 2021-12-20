@@ -27,9 +27,9 @@ public class Candidate {
     private Party party;
     @Basic
     @Column(name = "personal_votes", nullable = false, length = 20)
-    private String personalVotes;
+    private int personalVotes;
 
-    public Candidate(String firstName, String lastName, Party party, String personalVotes) {
+    public Candidate(String firstName, String lastName, Party party, int personalVotes) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.party = party;
