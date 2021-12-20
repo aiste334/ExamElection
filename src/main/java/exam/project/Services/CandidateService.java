@@ -41,5 +41,25 @@ public class CandidateService {
         }
         return candidateDTOList;
     }
+    public CandidateDTO createCandidate(String firstName, String lastName, int partyId, int personalVotes){
+        Party party = partyRepository.findPartyByPartyId(partyId);
+        Candidate candidate = candidateRepository.save(new Candidate(firstName, lastName, party, personalVotes));
+        return new CandidateDTO(candidate);
+    }
 
+    public void deleteCandidate(Integer candidateId) {
+        candidateRepository.deleteById(candidateId);
+    }
+
+    public CandidateDTO updateCandidateParty(int candidateId, int partyId){
+        try {
+            Party party = partyRepository.findPartyByPartyId(partyId);
+            Candidate candidate = candidateRepository.findCandidateByCandidateId(candidateId);
+            candidate.setParty(party);
+            return new CandidateDTO(candidateRepository.save(candidate));
+        }catch (Exception ex){
+            System.out.println("Failed");
+        }
+        return null;
+    }
 }
