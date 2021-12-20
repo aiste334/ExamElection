@@ -20,6 +20,7 @@ public class PartyController {
         this.partyService = partyService;
     }
 
+    //Gets all parties
     @GetMapping("/parties")
     List<PartyDTO> getAllParties(){
         return partyService.getAllParties();
